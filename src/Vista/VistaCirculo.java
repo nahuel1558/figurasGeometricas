@@ -63,6 +63,11 @@ public class VistaCirculo extends javax.swing.JFrame {
         lblRadio.setText("RADIO : ");
 
         txtRadioCirculo.setText("2.00");
+        txtRadioCirculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRadioCirculoActionPerformed(evt);
+            }
+        });
 
         btnCalcularMedidas.setText("CALCULAR");
         btnCalcularMedidas.addActionListener(new java.awt.event.ActionListener() {
@@ -105,24 +110,28 @@ public class VistaCirculo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiar)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblRadio)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtRadioCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblRadio)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtRadioCirculo))
+                            .addComponent(lblMedidasCirculo))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPerimetro)
-                            .addComponent(lblArea))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMedidaArea)
-                            .addComponent(lblMedidaPerimetro))
-                        .addGap(108, 108, 108))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblMedidasCirculo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblResultados)
-                        .addGap(146, 146, 146))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblResultados)
+                                .addGap(146, 146, 146))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPerimetro)
+                                    .addComponent(lblArea))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblMedidaArea)
+                                    .addComponent(lblMedidaPerimetro))
+                                .addGap(108, 108, 108))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,12 +196,16 @@ public class VistaCirculo extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         //Limpiando campos de texto de entrada
-        txtRadioCirculo.setText("");
+        txtRadioCirculo.setText("0");
         
         //Limpiando campos de texto de resultado
         lblMedidaPerimetro.setText("");
         lblMedidaArea.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtRadioCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRadioCirculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRadioCirculoActionPerformed
 
     /**
      * @param args the command line arguments

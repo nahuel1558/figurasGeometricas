@@ -173,7 +173,7 @@ public class VistaCuadrado extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         //Limpiando campos de texto de entrada
-        txtLadoCuadrado.setText("");
+        txtLadoCuadrado.setText("0");
         
         //Limpiando campos de texto de resultado
         lblMedidaPerimetro.setText("");
