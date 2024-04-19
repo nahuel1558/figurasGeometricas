@@ -21,6 +21,7 @@ public class VistaTriangulo extends javax.swing.JFrame {
     public VistaTriangulo() throws SQLException {
         controladoraFiguras = ControladorFiguras.GetInstance();
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -49,6 +50,7 @@ public class VistaTriangulo extends javax.swing.JFrame {
         lblAltura = new javax.swing.JLabel();
         lblMedidaAltura = new javax.swing.JLabel();
         lblResultado = new javax.swing.JLabel();
+        bntLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +104,13 @@ public class VistaTriangulo extends javax.swing.JFrame {
 
         lblResultado.setText("RESULTADOS");
 
+        bntLimpiar.setText("LIMPIAR");
+        bntLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,18 +124,19 @@ public class VistaTriangulo extends javax.swing.JFrame {
                         .addComponent(lblTituloTriangulo))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTextoMedidasTriangulo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblBaseTriangulo)
-                                    .addComponent(lblLado2Triangulo)
-                                    .addComponent(btnCalcularMedidas)
-                                    .addComponent(lblLado1Triangulo))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtBaseTriangulo, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                                    .addComponent(txtLado1Triangulo)
-                                    .addComponent(txtLado2Triangulo))))
+                            .addComponent(lblBaseTriangulo)
+                            .addComponent(lblLado2Triangulo)
+                            .addComponent(btnCalcularMedidas)
+                            .addComponent(lblLado1Triangulo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtBaseTriangulo, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                .addComponent(txtLado1Triangulo)
+                                .addComponent(txtLado2Triangulo))
+                            .addComponent(bntLimpiar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTextoMedidasTriangulo)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(104, 104, 104)
@@ -143,7 +153,7 @@ public class VistaTriangulo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblResultado)
                                 .addGap(37, 37, 37)))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,12 +173,12 @@ public class VistaTriangulo extends javax.swing.JFrame {
                     .addComponent(lblPerimetro)
                     .addComponent(lblMedidaPerimetro))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLado1Triangulo)
-                    .addComponent(txtLado1Triangulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtLado1Triangulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblArea)
-                        .addComponent(lblMedidaArea)))
+                        .addComponent(lblMedidaArea))
+                    .addComponent(lblLado1Triangulo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLado2Triangulo)
@@ -176,7 +186,9 @@ public class VistaTriangulo extends javax.swing.JFrame {
                     .addComponent(lblAltura)
                     .addComponent(lblMedidaAltura))
                 .addGap(18, 18, 18)
-                .addComponent(btnCalcularMedidas)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCalcularMedidas)
+                    .addComponent(bntLimpiar))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -216,6 +228,18 @@ public class VistaTriangulo extends javax.swing.JFrame {
         }
         vistaFigura.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void bntLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntLimpiarActionPerformed
+        //Limpiando campos de texto de entrada
+        txtBaseTriangulo.setText("");
+        txtLado1Triangulo.setText("");
+        txtLado2Triangulo.setText("");
+        
+        //Limpiando campos de texto de resultado
+        lblMedidaPerimetro.setText("");
+        lblMedidaArea.setText("");
+        lblMedidaAltura.setText("");
+    }//GEN-LAST:event_bntLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,6 +282,7 @@ public class VistaTriangulo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntLimpiar;
     private javax.swing.JButton btnCalcularMedidas;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblAltura;

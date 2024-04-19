@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import Controlador.ControladorFiguras;
@@ -24,6 +21,7 @@ public class VistaCirculo extends javax.swing.JFrame {
     public VistaCirculo() throws SQLException {
         controladoraFiguras = ControladorFiguras.GetInstance();
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -46,6 +44,7 @@ public class VistaCirculo extends javax.swing.JFrame {
         lblArea = new javax.swing.JLabel();
         lblMedidaPerimetro = new javax.swing.JLabel();
         lblMedidaArea = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +81,13 @@ public class VistaCirculo extends javax.swing.JFrame {
 
         lblMedidaArea.setText("MEDIDAS");
 
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,6 +102,8 @@ public class VistaCirculo extends javax.swing.JFrame {
                         .addGap(238, 238, 238))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCalcularMedidas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpiar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblRadio)
@@ -141,7 +149,9 @@ public class VistaCirculo extends javax.swing.JFrame {
                             .addComponent(lblArea)
                             .addComponent(lblMedidaArea))))
                 .addGap(8, 8, 8)
-                .addComponent(btnCalcularMedidas)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCalcularMedidas)
+                    .addComponent(btnLimpiar))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
@@ -174,6 +184,15 @@ public class VistaCirculo extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_btnCalcularMedidasActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        //Limpiando campos de texto de entrada
+        txtRadioCirculo.setText("");
+        
+        //Limpiando campos de texto de resultado
+        lblMedidaPerimetro.setText("");
+        lblMedidaArea.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +236,7 @@ public class VistaCirculo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcularMedidas;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblMedidaArea;

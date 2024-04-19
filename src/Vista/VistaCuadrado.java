@@ -14,6 +14,7 @@ public class VistaCuadrado extends javax.swing.JFrame {
 
         controladoraFiguras = ControladorFiguras.GetInstance();
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -30,6 +31,7 @@ public class VistaCuadrado extends javax.swing.JFrame {
         lblMedidaArea = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         btnCalcularMedidas = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +72,13 @@ public class VistaCuadrado extends javax.swing.JFrame {
             }
         });
 
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,20 +87,22 @@ public class VistaCuadrado extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCalcularMedidas)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnVolver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblTituloCuadrado)
                         .addGap(208, 208, 208))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTextoMedidaCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblLado1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtLadoCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnCalcularMedidas)
+                                .addGap(89, 89, 89)
+                                .addComponent(btnLimpiar))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblTextoMedidaCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblLado1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtLadoCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblPerimetro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -100,7 +111,7 @@ public class VistaCuadrado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMedidaPerimetro)
                             .addComponent(lblMedidaArea))
-                        .addContainerGap(80, Short.MAX_VALUE))))
+                        .addContainerGap(79, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +132,9 @@ public class VistaCuadrado extends javax.swing.JFrame {
                     .addComponent(lblArea)
                     .addComponent(lblMedidaArea))
                 .addGap(18, 18, 18)
-                .addComponent(btnCalcularMedidas)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCalcularMedidas)
+                    .addComponent(btnLimpiar))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -157,6 +170,15 @@ public class VistaCuadrado extends javax.swing.JFrame {
         }
         vistaFigura.setVisible(true);
      }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        //Limpiando campos de texto de entrada
+        txtLadoCuadrado.setText("");
+        
+        //Limpiando campos de texto de resultado
+        lblMedidaPerimetro.setText("");
+        lblMedidaArea.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,6 +222,7 @@ public class VistaCuadrado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcularMedidas;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblLado1;

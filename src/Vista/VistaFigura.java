@@ -7,9 +7,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 public class VistaFigura extends javax.swing.JFrame {
 
@@ -20,6 +18,7 @@ public class VistaFigura extends javax.swing.JFrame {
         controladoraFiguras = ControladorFiguras.GetInstance();
         initComponents();
         poblarComboBox();
+        setLocationRelativeTo(null);
     }
 
     // Método para poblar el ComboBox con las opciones de figuras disponibles
@@ -41,7 +40,6 @@ public class VistaFigura extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
-        panelCampos = new javax.swing.JPanel();
         lblElegirFigura = new javax.swing.JLabel();
         cbxFiguras = new javax.swing.JComboBox<>();
         btnAceptarFigura = new javax.swing.JButton();
@@ -50,17 +48,6 @@ public class VistaFigura extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTitulo.setText("FIGURAS GEOMETRICAS");
-
-        javax.swing.GroupLayout panelCamposLayout = new javax.swing.GroupLayout(panelCampos);
-        panelCampos.setLayout(panelCamposLayout);
-        panelCamposLayout.setHorizontalGroup(
-            panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
-        );
-        panelCamposLayout.setVerticalGroup(
-            panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
-        );
 
         lblElegirFigura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblElegirFigura.setText("ELEGIR FIGURA: ");
@@ -79,37 +66,28 @@ public class VistaFigura extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(263, 263, 263)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAceptarFigura)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(lblTitulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblElegirFigura)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbxFiguras, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnAceptarFigura))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addComponent(lblElegirFigura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbxFiguras, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTitulo))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblTitulo)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblElegirFigura)
-                            .addComponent(cbxFiguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addComponent(btnAceptarFigura))
-                    .addComponent(panelCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblElegirFigura)
+                    .addComponent(cbxFiguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnAceptarFigura)
+                .addContainerGap(333, Short.MAX_VALUE))
         );
 
         pack();
@@ -245,6 +223,5 @@ public void run() {
     private javax.swing.JComboBox<String> cbxFiguras;
     private javax.swing.JLabel lblElegirFigura;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JPanel panelCampos;
     // End of variables declaration//GEN-END:variables
 }

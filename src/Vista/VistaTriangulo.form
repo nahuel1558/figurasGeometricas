@@ -31,24 +31,25 @@
                       <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                       <Component id="lblTituloTriangulo" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblTextoMedidasTriangulo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblBaseTriangulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLado2Triangulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnCalcularMedidas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLado1Triangulo" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtBaseTriangulo" pref="88" max="32767" attributes="0"/>
-                                  <Component id="txtLado1Triangulo" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtLado2Triangulo" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="lblBaseTriangulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLado2Triangulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCalcularMedidas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLado1Triangulo" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtBaseTriangulo" pref="88" max="32767" attributes="0"/>
+                              <Component id="txtLado1Triangulo" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtLado2Triangulo" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="bntLimpiar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="lblTextoMedidasTriangulo" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
@@ -72,7 +73,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,13 +98,13 @@
                   <Component id="lblMedidaPerimetro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblLado1Triangulo" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtLado1Triangulo" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="lblArea" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblMedidaArea" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="lblLado1Triangulo" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -113,7 +114,10 @@
                   <Component id="lblMedidaAltura" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnCalcularMedidas" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCalcularMedidas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bntLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -216,6 +220,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="RESULTADOS"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bntLimpiar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LIMPIAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntLimpiarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

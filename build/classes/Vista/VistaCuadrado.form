@@ -27,22 +27,25 @@
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btnCalcularMedidas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblTituloCuadrado" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblTextoMedidaCuadrado" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblLado1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtLadoCuadrado" min="-2" pref="119" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnCalcularMedidas" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                              <Component id="btnLimpiar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTextoMedidaCuadrado" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblLado1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtLadoCuadrado" min="-2" pref="119" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
@@ -55,7 +58,7 @@
                           <Component id="lblMedidaPerimetro" min="-2" max="-2" attributes="0"/>
                           <Component id="lblMedidaArea" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="80" max="32767" attributes="0"/>
+                      <EmptySpace pref="79" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -83,7 +86,10 @@
                   <Component id="lblMedidaArea" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnCalcularMedidas" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCalcularMedidas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -153,6 +159,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcularMedidasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLimpiar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LIMPIAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
