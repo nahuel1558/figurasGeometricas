@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Circulo;
 import Modelo.Cuadrado;
 import Modelo.Triangulo;
 import java.sql.SQLException;
@@ -47,11 +48,19 @@ public class ControladorFiguras {
         return altura;
     }
 
-    public float calcularSuperficieCirculo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public float calcularSuperficieCirculo(float radio) {
+        Circulo circulo = new Circulo(radio);
+        float superficie = circulo.calcularSuperficie();
+        return superficie;
+        
     }
 
-    public float calcularPerimetroCirculo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public float calcularPerimetroCirculo(float radio) {
+        Circulo circulo = new Circulo(radio);
+        float perimetro = circulo.calcularPerimetro();
+        return perimetro;
+    }
+    public String[] obtenerFigurasDisponibles() {
+        return new String[]{"Cuadrado", "Triangulo", "Circulo"};
     }
 }

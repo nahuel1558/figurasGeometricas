@@ -1,12 +1,15 @@
 package Programa;
 
 import Controlador.ControladorFiguras;
+import Vista.VistaFigura;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FigurasGeometricas {
 
-    static ControladorFiguras controladoraFiguras;
+    //static ControladorFiguras controladoraFiguras;
 
     /**
      * @param args the command line arguments
@@ -15,8 +18,24 @@ public class FigurasGeometricas {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws SQLException {
 
-        controladoraFiguras = ControladorFiguras.GetInstance();
+      
+        
+       
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    new VistaFigura().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(FigurasGeometricas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
+}
 
+  //controladoraFiguras = ControladorFiguras.GetInstance();
+/*
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Seleccione la figura geometrica:");
@@ -48,11 +67,10 @@ public class FigurasGeometricas {
                 System.out.println("Altura del triangulo: " + controladoraFiguras.calcularAlturaTriangulo(lado1, lado2, base));
                 break;
              case 3:
-                System.out.println("Círculo - Radio:");
+                System.out.println("Circulo - Radio: ");
                 float radio = scanner.nextFloat();
-                
-                System.out.println("Superficie del círculo: " + controladoraFiguras.calcularSuperficieCirculo());
-                System.out.println("Perímetro del círculo: " + controladoraFiguras.calcularPerimetroCirculo());
+                System.out.println("Superficie del circulo: " + controladoraFiguras.calcularSuperficieCirculo(radio));
+                System.out.println("Perimetro del circulo: " + controladoraFiguras.calcularPerimetroCirculo(radio));
                 break;
             default:
                 System.out.println("Opcion no valida");
@@ -60,5 +78,5 @@ public class FigurasGeometricas {
         }
 
     }
+*/
 
-}
