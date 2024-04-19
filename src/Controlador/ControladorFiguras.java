@@ -42,6 +42,7 @@ public class ControladorFiguras {
         float  perimetro = triangulo.calcularPerimetro();
         return perimetro;
     }
+    
     public float calcularAlturaTriangulo(float lado1, float lado2, float base){
         Triangulo triangulo = new Triangulo(lado1, lado2, base);
         float  altura = triangulo.calcularAltura();
@@ -60,6 +61,7 @@ public class ControladorFiguras {
         float perimetro = circulo.calcularPerimetro();
         return perimetro;
     }
+    
     public String[] obtenerFigurasDisponibles() {
         return new String[]{"Cuadrado", "Triangulo", "Circulo"};
     }
