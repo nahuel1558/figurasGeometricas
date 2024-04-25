@@ -4,8 +4,8 @@ package Interfaz;
 
 public interface ICalcularFigura {
     
-    public abstract float calcularSuperficie();
+    public float calcularSuperficie(Object e);
     
-    public abstract float calcularPerimetro();
+    public float calcularPerimetro(Object e);
             
 }

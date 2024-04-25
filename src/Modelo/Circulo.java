@@ -4,7 +4,7 @@ import Interfaz.ICalcularFigura;
 
 public class Circulo implements ICalcularFigura {
 
-    private Float radio;
+    private float radio;
 
     public Circulo() {
     }
