@@ -22,13 +22,15 @@ public class Circulo implements ICalcularFigura {
     }
 
     @Override
-    public float calcularSuperficie() {
-        return (float) (Math.PI * radio * radio);
+    public float calcularSuperficie(Object e) {
+        Circulo circulo = (Circulo) e;
+        return (float) (Math.PI * circulo.getRadio() * circulo.getRadio());
     }
 
     @Override
-    public float calcularPerimetro() {
-        return (float) (2 * Math.PI * radio);
+    public float calcularPerimetro(Object e) {
+        Circulo circulo = (Circulo) e;
+        return (float) (2 * Math.PI * circulo.getRadio());
     }
 
 }

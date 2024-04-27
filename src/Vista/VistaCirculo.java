@@ -182,7 +182,6 @@ public class VistaCirculo extends javax.swing.JFrame {
     private void btnCalcularMedidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularMedidasActionPerformed
         try{
             float medidaRadio = Float.parseFloat(txtRadioCirculo.getText());
-            Circulo circulo = Float.parseFloat(txtRadioCirculo.getText());
             
             float resultadoPerimetro = controladoraFiguras.calcularPerimetroCirculo(medidaRadio);
             float resultadoArea = controladoraFiguras.calcularSuperficieCirculo(medidaRadio);

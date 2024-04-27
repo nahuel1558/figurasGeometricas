@@ -29,13 +29,15 @@ public class Cuadrado implements ICalcularFigura {
     }
 
     @Override
-    public float calcularSuperficie() {
-       return lado * lado;
+    public float calcularSuperficie(Object e) {
+        Cuadrado cuadrado = (Cuadrado) e;
+       return cuadrado.getLado() * cuadrado.getLado();
     }
 
     @Override
-    public float calcularPerimetro() {
-       return 4 * lado;
+    public float calcularPerimetro(Object e) {
+        Cuadrado cuadrado = (Cuadrado) e;
+       return 4 * cuadrado.getLado();
     }
     
    

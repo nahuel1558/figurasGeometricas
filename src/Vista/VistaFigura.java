@@ -1,6 +1,9 @@
 package Vista;
 
 import Controlador.ControladorFiguras;
+import Modelo.Circulo;
+import Modelo.Cuadrado;
+import Modelo.Triangulo;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
@@ -13,6 +16,7 @@ public class VistaFigura extends javax.swing.JFrame {
 
     private JFrame ventanaActual;
     ControladorFiguras controladoraFiguras;
+    private final Class<?>[] clasesFiguras = {Cuadrado.class, Triangulo.class, Circulo.class};
 
     public VistaFigura() throws SQLException {
         controladoraFiguras = ControladorFiguras.GetInstance();
@@ -23,15 +27,12 @@ public class VistaFigura extends javax.swing.JFrame {
 
     // Método para poblar el ComboBox con las opciones de figuras disponibles
     private void poblarComboBox() {
-        // Obtener las figuras disponibles del controlador
-        String[] figurasDisponibles = controladoraFiguras.obtenerFigurasDisponibles();
-
-        // Limpiar el ComboBox
+         // Limpiar el ComboBox
         cbxFiguras.removeAllItems();
 
-        // Agregar las figuras disponibles al ComboBox
-        for (String figura : figurasDisponibles) {
-            cbxFiguras.addItem(figura);
+        // Agregar las clases de figuras disponibles al ComboBox
+        for (Class<?> clase : clasesFiguras) {
+            cbxFiguras.addItem(clase.getSimpleName()); // Agrega el nombre de la clase como un String
         }
     }
 
@@ -96,9 +97,10 @@ public class VistaFigura extends javax.swing.JFrame {
     private void btnAceptarFiguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarFiguraActionPerformed
 
         try {
-            String figuraSeleccionada = (String) cbxFiguras.getSelectedItem();
+            String nombreClase = (String) cbxFiguras.getSelectedItem();
+
             
-            switch (figuraSeleccionada) {
+            switch (nombreClase) {
                 case "Cuadrado":
                     if (ventanaActual != null) {
                         ventanaActual.dispose();

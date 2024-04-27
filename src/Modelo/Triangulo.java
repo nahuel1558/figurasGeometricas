@@ -89,20 +89,36 @@ public class Triangulo implements ICalcularFigura {
     }
 
     @Override
-    public float calcularSuperficie() {
-        float s = (lado1 + lado1 + base) / 2;
-        return (float) Math.sqrt(s * (s - lado1) * (s - lado2) * (s - base));
+    public float calcularSuperficie(Object e) {
+        Triangulo triangulo = (Triangulo) e;
+        triangulo = determinarTipoTriangulo(triangulo);
+        float area;
+        if (Objects.equals(triangulo.getTipoTriangulo(), TipoTriangulo.Equilatero)) {
+            area = calcularAreaEquilatero(triangulo);
+        } else if (Objects.equals(triangulo.getTipoTriangulo(), TipoTriangulo.Isosceles)) {
+            area = calcularAreaIsosceles(triangulo);
+        } else {
+            area = calcularAreaEscaleno(triangulo);
+        }
+        return area;
     }
 
     @Override
     public float calcularPerimetro(Object e) {
-        return lado1 + lado2 + base;
+        Triangulo triangulo = (Triangulo) e;
+        return (float) triangulo.getLado2() + triangulo.getBase() + triangulo.getLado1();
     }
 
-    public float calcularAltura(Object e) {
-        float area = calcularSuperficie();
-        return (2 * area) / base;
-
+    public float calcularAltura(Triangulo triangulo) {
+        float altura;
+        if (Objects.equals(triangulo.getTipoTriangulo(), TipoTriangulo.Equilatero)) {
+            altura = calcularAlturaEquilatero(triangulo);
+        } else if (Objects.equals(triangulo.getTipoTriangulo(), TipoTriangulo.Isosceles)) {
+            altura = calcularAlturaIsosceles(triangulo);
+        } else {
+            altura = calcularAlturaEscaleno(triangulo);
+        }
+        return altura;
     }
 
     public static Triangulo determinarTipoTriangulo(Triangulo triangulo) {
@@ -123,34 +139,57 @@ public class Triangulo implements ICalcularFigura {
     public static boolean isosceles(Triangulo triangulo) {
         return (Objects.equals(triangulo.getLado1(), triangulo.getLado2()) || Objects.equals(triangulo.getBase(), triangulo.getLado1()) || Objects.equals(triangulo.getBase(), triangulo.getLado2()));
     }
-    public float calcularAreaEquilatero() {
-        return (float) (Math.sqrt(3) / 4 * Math.pow(lado, 2));
+
+    public float calcularAreaEquilatero(Triangulo triangulo) {
+        return (float) (Math.sqrt(3) / 4 * Math.pow(lado1, 2));
     }
 
-    public float calcularAlturaEquilatero() {
-        return (float) (Math.sqrt(3) / 2 * lado);
-    }
-    
-     public float calcularAreaIsosceles() {
-        float altura = calcularAltura();
-        return (base * altura) / 2;
+    public float calcularAlturaEquilatero(Triangulo triangulo) {
+        return (float) (Math.sqrt(3) / 2 * lado1);
     }
 
-    public float calcularAlturaIsosceles() {
-        return (float) Math.sqrt(Math.pow(lado, 2) - (Math.pow(base, 2) / 4));
-    }
-    
-    public float calcularAreaEscaleno() {
-        float s = calcularSemiperimetro();
-        return (float) Math.sqrt(s * (s - lado1) * (s - lado2) * (s - base));
+    public float calcularAreaEscaleno(Triangulo triangulo) {
+        float semiPerimetro = calcularPerimetro(triangulo) / 2;
+        return (float) Math.sqrt(semiPerimetro * (semiPerimetro - triangulo.getLado1()) * (semiPerimetro - triangulo.getLado2()) * (semiPerimetro - triangulo.getBase()));
     }
 
-    public float calcularAlturaEscaleno() {
-        float area = calcularArea();
-        return (2 * area) / base;
+    public float calcularAlturaEscaleno(Triangulo triangulo) {
+        return (2 * calcularAreaEscaleno(triangulo)) / triangulo.getBase();
     }
 
-    public float calcularSemiperimetroEscaleno() {
-        return (lado1 + lado2 + base) / 2;
+//<editor-fold defaultstate="collapsed" desc=" Metodos Triangulo ISOSCELES ">
+    public float calcularAreaIsosceles(Triangulo triangulo) {
+        float areaIsosceles;
+        if (ladoDiferenteLado2(triangulo)) {
+            areaIsosceles = (float) ((float) (triangulo.getLado2() / 4) * Math.sqrt(4 * Math.pow(triangulo.getBase(), 2) - Math.pow(triangulo.getLado2(), 2)));
+        } else if (ladoDiferenteLado1(triangulo)) {
+            areaIsosceles = (float) ((float) (triangulo.getLado1() / 4) * Math.sqrt(4 * Math.pow(triangulo.getBase(), 2) - Math.pow(triangulo.getLado1(), 2)));
+        } else {
+            areaIsosceles = (float) ((float) (triangulo.getBase() / 4) * Math.sqrt(4 * Math.pow(triangulo.getLado1(), 2) - Math.pow(triangulo.getBase(), 2)));
+        }
+        return areaIsosceles;
     }
+
+    public float calcularAlturaIsosceles(Triangulo triangulo) {
+
+        float alturaIsos;
+        if (ladoDiferenteLado2(triangulo)) {
+            alturaIsos = (float) Math.sqrt(Math.pow(triangulo.getBase(), 2) - (Math.pow(triangulo.getLado2(), 2) / 4));
+        } else if (ladoDiferenteLado1(triangulo)) {
+            alturaIsos = (float) Math.sqrt(Math.pow(triangulo.getBase(), 2) - (Math.pow(triangulo.getLado1(), 2) / 4));
+        } else {
+            alturaIsos = (float) Math.sqrt(Math.pow(triangulo.getLado1(), 2) - (Math.pow(triangulo.getBase(), 2) / 4));
+        }
+        return alturaIsos;
+    }
+
+    public static boolean ladoDiferenteLado2(Triangulo triangulo) {
+        return Objects.equals(triangulo.getBase(), triangulo.getLado1());
+    }
+
+    public static boolean ladoDiferenteLado1(Triangulo triangulo) {
+        return Objects.equals(triangulo.getBase(), triangulo.getLado2());
+    }
+//</editor-fold>
+
 }
