@@ -62,10 +62,4 @@ public class ControladorFiguras {
         return perimetro;
     }
     
-<<<<<<< HEAD
-=======
-    public String[] obtenerFigurasDisponibles() {
-        return new String[]{"Cuadrado", "Triangulo", "Circulo"};
-    }
->>>>>>> e53bba108468f287b667daf1a5958f3cd285c08c
 }

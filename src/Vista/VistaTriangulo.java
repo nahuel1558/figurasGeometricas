@@ -186,7 +186,7 @@ public class VistaTriangulo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBaseTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBaseTrianguloActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtBaseTrianguloActionPerformed
 
     private void btnCalcularMedidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularMedidasActionPerformed
@@ -220,12 +220,12 @@ public class VistaTriangulo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void bntLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntLimpiarActionPerformed
-        //Limpiando campos de texto de entrada
-        txtBaseTriangulo.setText("0");
-        txtLado1Triangulo.setText("0");
-        txtLado2Triangulo.setText("0");
+    
+        txtBaseTriangulo.setText("");
+        txtLado1Triangulo.setText("");
+        txtLado2Triangulo.setText("");
         
-        //Limpiando campos de texto de resultado
+        
         lblMedidaPerimetro.setText("");
         lblMedidaArea.setText("");
         lblMedidaAltura.setText("");

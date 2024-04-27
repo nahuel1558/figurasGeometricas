@@ -196,10 +196,10 @@ public class VistaCirculo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCalcularMedidasActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        //Limpiando campos de texto de entrada
-        txtRadioCirculo.setText("0");
         
-        //Limpiando campos de texto de resultado
+        txtRadioCirculo.setText(" ");
+        
+        
         lblMedidaPerimetro.setText("");
         lblMedidaArea.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed

@@ -25,14 +25,14 @@ public class VistaFigura extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    // Método para poblar el ComboBox con las opciones de figuras disponibles
+  
     private void poblarComboBox() {
-         // Limpiar el ComboBox
+     
         cbxFiguras.removeAllItems();
 
-        // Agregar las clases de figuras disponibles al ComboBox
+      
         for (Class<?> clase : clasesFiguras) {
-            cbxFiguras.addItem(clase.getSimpleName()); // Agrega el nombre de la clase como un String
+            cbxFiguras.addItem(clase.getSimpleName()); 
         }
     }
 
@@ -169,7 +169,7 @@ public class VistaFigura extends javax.swing.JFrame {
                     this.setVisible(false);
                     break;
                 default:
-                    // Si no se selecciona una figura válida, muestra un mensaje de error
+                  
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una figura válida.");
             }
         } catch (SQLException ex) {
