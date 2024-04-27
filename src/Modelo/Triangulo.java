@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
 import Interfaz.ICalcularFigura;
 import java.util.Objects;
 
-/**
- *
- * @author nahue
- */
+
 public class Triangulo implements ICalcularFigura {
 
     public enum TipoTriangulo {

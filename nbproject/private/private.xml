@@ -3,9 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/nahue/Documents/1-Instituto/3°%20Año/Diseño%20e%20implementación%20de%20sistemas/Tp%201%20-%20Figuras%20Geometricas/FigurasGeometricas/src/Modelo/Triangulo.java</file>
             <file>file:/C:/Users/nahue/Documents/1-Instituto/3°%20Año/Diseño%20e%20implementación%20de%20sistemas/Tp%201%20-%20Figuras%20Geometricas/FigurasGeometricas/src/Vista/VistaFigura.java</file>
             <file>file:/C:/Users/nahue/Documents/1-Instituto/3°%20Año/Diseño%20e%20implementación%20de%20sistemas/Tp%201%20-%20Figuras%20Geometricas/FigurasGeometricas/src/Controlador/ControladorFiguras.java</file>
+=======
+            <file>file:/C:/Users/Nahu/Documents/NetBeansProjects/figurasGeometricas/src/Vista/VistaFigura.java</file>
+            <file>file:/C:/Users/Nahu/Documents/NetBeansProjects/figurasGeometricas/src/Controlador/ControladorFiguras.java</file>
+            <file>file:/C:/Users/Nahu/Documents/NetBeansProjects/figurasGeometricas/src/Vista/VistaTriangulo.java</file>
+            <file>file:/C:/Users/Nahu/Documents/NetBeansProjects/figurasGeometricas/src/Interfaz/ICalcularFigura.java</file>
+>>>>>>> e53bba108468f287b667daf1a5958f3cd285c08c
         </group>
     </open-files>
 </project-private>
