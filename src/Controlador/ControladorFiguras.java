@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Circulo;
 import Modelo.Cuadrado;
+import Modelo.Poligono;
 import Modelo.Triangulo;
 import java.sql.SQLException;
 
@@ -33,19 +34,19 @@ public class ControladorFiguras {
 
     public float calcularSuperficieTriangulo(float lado1, float lado2, float base) {
         Triangulo triangulo = new Triangulo(lado1, lado2, base);
-        
+
         return triangulo.calcularSuperficie(triangulo);
     }
 
     public float calcularPerimetroTriangulo(float lado1, float lado2, float base) {
-       Triangulo triangulo = new Triangulo(lado1, lado2, base);
-        float  perimetro = triangulo.calcularPerimetro(triangulo);
+        Triangulo triangulo = new Triangulo(lado1, lado2, base);
+        float perimetro = triangulo.calcularPerimetro(triangulo);
         return perimetro;
     }
-    
-    public float calcularAlturaTriangulo(float lado1, float lado2, float base){
+
+    public float calcularAlturaTriangulo(float lado1, float lado2, float base) {
         Triangulo triangulo = new Triangulo(lado1, lado2, base);
-        float  altura = triangulo.calcularAltura(triangulo);
+        float altura = triangulo.calcularAltura(triangulo);
         return altura;
     }
 
@@ -53,7 +54,7 @@ public class ControladorFiguras {
         Circulo circulo = new Circulo(radio);
         float superficie = circulo.calcularSuperficie(circulo);
         return superficie;
-        
+
     }
 
     public float calcularPerimetroCirculo(float radio) {
@@ -61,5 +62,14 @@ public class ControladorFiguras {
         float perimetro = circulo.calcularPerimetro(circulo);
         return perimetro;
     }
-    
+
+    public float calcularSuperficiePoligono(Poligono poligono) {
+        float superficie = poligono.calcularSuperficie(poligono);
+        return superficie;
+    }
+
+    public float calcularPerimetroPoligono(Poligono poligono) {
+        float perimetro = poligono.calcularPerimetro(poligono);
+        return perimetro;
+    }
 }

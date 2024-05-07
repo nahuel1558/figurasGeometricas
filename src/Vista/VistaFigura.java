@@ -3,6 +3,7 @@ package Vista;
 import Controlador.ControladorFiguras;
 import Modelo.Circulo;
 import Modelo.Cuadrado;
+import Modelo.Poligono;
 import Modelo.Triangulo;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -16,7 +17,7 @@ public class VistaFigura extends javax.swing.JFrame {
 
     private JFrame ventanaActual;
     ControladorFiguras controladoraFiguras;
-    private final Class<?>[] clasesFiguras = {Cuadrado.class, Triangulo.class, Circulo.class};
+    private final Class<?>[] clasesFiguras = {Cuadrado.class, Triangulo.class, Circulo.class, Poligono.class};
 
     public VistaFigura() throws SQLException {
         controladoraFiguras = ControladorFiguras.GetInstance();
@@ -25,14 +26,12 @@ public class VistaFigura extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-  
     private void poblarComboBox() {
-     
+
         cbxFiguras.removeAllItems();
 
-      
         for (Class<?> clase : clasesFiguras) {
-            cbxFiguras.addItem(clase.getSimpleName()); 
+            cbxFiguras.addItem(clase.getSimpleName());
         }
     }
 
@@ -99,83 +98,124 @@ public class VistaFigura extends javax.swing.JFrame {
         try {
             String nombreClase = (String) cbxFiguras.getSelectedItem();
 
-            
             switch (nombreClase) {
                 case "Cuadrado":
-                    if (ventanaActual != null) {
-                        ventanaActual.dispose();
-                    }
-                    
-                    VistaCuadrado vistaCuadrado = null;
-                    vistaCuadrado = new VistaCuadrado();
-                    
-                    vistaCuadrado.addWindowListener(new WindowAdapter() {
-                        @Override
-                        public void windowClosed(WindowEvent e) {
-                            
-                            setVisible(true);
-                        }
-                    });
-                    
-                    vistaCuadrado.setVisible(true);
-                    
-                    ventanaActual = vistaCuadrado;
-                    
-                    this.setVisible(false);
+                    abrirVistaCuadrado();
                     break;
-                    
+
                 case "Triangulo":
-                    if (ventanaActual != null) {
-                        ventanaActual.dispose();
-                    }
-                    
-                    VistaTriangulo vistaTriangulo = null;
-                    vistaTriangulo = new VistaTriangulo();
-                    
-                    vistaTriangulo.addWindowListener(new WindowAdapter() {
-                        @Override
-                        public void windowClosed(WindowEvent e) {
-                            
-                            setVisible(true);
-                        }
-                    });
-                    
-                    vistaTriangulo.setVisible(true);
-                    
-                    ventanaActual = vistaTriangulo;
-                    
-                    this.setVisible(false);
+                    abrirVistaTriangulo();
                     break;
                 case "Circulo":
-                    if (ventanaActual != null) {
-                        ventanaActual.dispose();
-                    }
-                    
-                    VistaCirculo vistaCirculo = null;
-                    vistaCirculo = new VistaCirculo();
-                    
-                    vistaCirculo.addWindowListener(new WindowAdapter() {
-                        @Override
-                        public void windowClosed(WindowEvent e) {
-                            
-                            setVisible(true);
-                        }
-                    });
-                    
-                    vistaCirculo.setVisible(true);
-                    
-                    ventanaActual = vistaCirculo;
-                    
-                    this.setVisible(false);
+                    abrirVistaCirculo();
+                    break;
+                case "Poligono":
+                    abrirVistaPoligono();
                     break;
                 default:
-                  
+
                     JOptionPane.showMessageDialog(null, "Debes seleccionar una figura válida.");
             }
         } catch (SQLException ex) {
             Logger.getLogger(VistaFigura.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAceptarFiguraActionPerformed
+
+    private void abrirVistaCuadrado() throws SQLException {
+        if (ventanaActual != null) {
+            ventanaActual.dispose();
+        }
+
+        VistaCuadrado vistaCuadrado = null;
+        vistaCuadrado = new VistaCuadrado();
+
+        vistaCuadrado.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+                setVisible(true);
+            }
+        });
+
+        vistaCuadrado.setVisible(true);
+
+        ventanaActual = vistaCuadrado;
+
+        this.setVisible(false);
+    }
+
+    private void abrirVistaCirculo() throws SQLException {
+        if (ventanaActual != null) {
+            ventanaActual.dispose();
+        }
+
+        VistaCirculo vistaCirculo = null;
+        vistaCirculo = new VistaCirculo();
+
+        vistaCirculo.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+                setVisible(true);
+            }
+        });
+
+        vistaCirculo.setVisible(true);
+
+        ventanaActual = vistaCirculo;
+
+        this.setVisible(false);
+    }
+
+    private void abrirVistaTriangulo() throws SQLException {
+        if (ventanaActual != null) {
+            ventanaActual.dispose();
+        }
+
+        VistaTriangulo vistaTriangulo = null;
+        vistaTriangulo = new VistaTriangulo();
+
+        vistaTriangulo.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+                setVisible(true);
+            }
+        });
+
+        vistaTriangulo.setVisible(true);
+
+        ventanaActual = vistaTriangulo;
+
+        this.setVisible(false);
+    }
+
+    private void abrirVistaPoligono() throws SQLException, SQLException {
+        try {
+            if (ventanaActual != null) {
+                ventanaActual.dispose();
+            }
+
+            VistaPoligono vistaPoligono = null;
+            vistaPoligono = new VistaPoligono();
+
+            vistaPoligono.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+
+                    setVisible(true);
+                }
+            });
+
+            vistaPoligono.setVisible(true);
+
+            ventanaActual = vistaPoligono;
+
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(VistaFigura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -192,14 +232,13 @@ public class VistaFigura extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaFigura.class  
+            java.util.logging.Logger.getLogger(VistaFigura.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-}
+        }
         //</editor-fold>
 
         //</editor-fold>
@@ -207,14 +246,13 @@ public class VistaFigura extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
-public void run() {
+            public void run() {
                 try {
                     new VistaFigura().setVisible(true);
 
-} catch (SQLException ex) {
-                    Logger.getLogger(VistaFigura.class  
-
-.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(VistaFigura.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
